@@ -1,0 +1,42 @@
+---
+title: "Final Project"
+author: "Brandon Henderson"
+date: "2022-11-28"
+output: html_document
+---
+
+Required packages
+```{r}
+library(tidyverse)
+library(ggplot2)
+```
+
+Creating the variable vectors
+```{r}
+sleep_time<- c(464, 495, 442, 392, 249, 293, 260, 400, 433, 549, 442, 400, 423, 327, 377, 446, 380, 334)
+daily_caffeine<- c(150, 69, 138, 310, 539, 357, 608, 160, 150, 0, 0, 69, 150, 229, 219, 0, 219, 379)
+my_df<- data.frame(sleep_time,daily_caffeine)
+sleepModel_1<- lm(sleep_time~daily_caffeine,data = my_df)
+summary(sleepModel_1)
+my_df %>% ggplot(aes(x=daily_caffeine,y=sleep_time))+geom_point()+geom_smooth(method = "lm",se=F)+labs(x="Daily Caffeine Consumption (in mg)",y="Nightly Sleep Time in Minutes",title = "Relationship Between Daily Caffeine Consumption & Sleep Time")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
